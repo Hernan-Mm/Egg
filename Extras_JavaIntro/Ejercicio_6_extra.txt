@@ -1,0 +1,26 @@
+public static void main(String[] args) {
+        Scanner leer=new Scanner(System.in);
+        System.out.println("Ingrese el número de personas:");
+        float N=leer.nextFloat();
+        float cont1=0;
+        float cont2=0;
+        float suma1=0;
+        float suma2=0;
+        for (int i = 0; i < N; i++) {
+            System.out.println("Ingrese la altura de la persona "+(i+1));
+            float altura=leer.nextFloat();
+            if (altura < 1.6) {
+                cont1=cont1 + 1;
+                suma1=suma1 + altura;
+            } else {
+                cont2=cont2 + 1;
+                suma2=suma2 + altura;
+            }
+        }
+        System.out.println("Hay "+cont1+" personas con altura menor a 1.60 metros.");
+        System.out.println("Hay "+cont2+" personas con altura mayor a 1.60 metros.");
+        float promedio1=suma1/cont1;
+        System.out.println("El promedio de personas con altura menor a 1.60 metros es:"+promedio1+" metros.");
+        float promedio2=(suma1+suma2)/N;
+        System.out.println("El promedio de personas con altura en general es:"+promedio2+" metros.");
+    }

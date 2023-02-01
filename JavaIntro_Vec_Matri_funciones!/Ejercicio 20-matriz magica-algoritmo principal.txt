@@ -1,0 +1,59 @@
+public static void main(String[] args) {
+        Scanner leer=new Scanner(System.in);
+        int[][]matriz=new int[3][3];
+        int[]vectorfila=new int[3];
+        int[]vectorcolumna=new int[3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                do {
+                    System.out.println("Ingresar un valor en la posición:"+i+","+j);
+                    matriz[i][j]=leer.nextInt();
+                } while (matriz[i][j]>9 || matriz[i][j]<1);
+                
+            }
+        }
+        System.out.println("La matriz ingresada es:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("["+matriz[i][j]+"]");
+            }
+            System.out.println("");
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                vectorfila[i]=vectorfila[i] + matriz[i][j];
+                vectorcolumna[j]=vectorcolumna[j] + matriz[i][j];
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            System.out.println("La suma de la fila "+i+" es:"+vectorfila[i]);
+            System.out.println("La suma de la columna "+i+" es:"+vectorcolumna[i]);
+        }
+        int diag=0;
+        int inv=0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i==j) {
+                    diag=diag + matriz[i][j];
+                }
+                if (i+j==3-1) {
+                    inv=inv + matriz[i][j];
+                }
+            }
+        }
+        System.out.println("La suma de los elementos de la diagonal principal es:"+diag);
+        System.out.println("La suma de los elementos de la diagonal secundaria es:"+inv);
+        boolean magica=false;
+        for (int i = 0; i < 3; i++) {
+            if (vectorfila[i]==vectorcolumna[i] && diag==inv) {
+                magica=true;
+            } else {
+                magica=false;
+            }
+        }
+        if (magica==true) {
+            System.out.println("La matriz ingresada es mágica.");
+        }else{
+            System.out.println("La matriz ingresada NO es mágica.");
+        }
+    }

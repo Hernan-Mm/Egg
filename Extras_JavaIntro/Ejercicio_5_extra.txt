@@ -1,0 +1,31 @@
+public static void main(String[] args) {
+        Scanner leer=new Scanner(System.in);
+        System.out.println("Ingrese el precio del tratamiento:");
+        float precio=leer.nextInt();
+        float descuento;
+        float preciofinal;
+        System.out.println("Bienvenidos a la obra social 'EGG'.Ingrese su clase, por favor:");
+        System.out.println("A-Socio clase 'A'");
+        System.out.println("B-Socio clase 'B'");
+        System.out.println("C-Socio clase 'C'");
+        char opcion=leer.next().toUpperCase().charAt(0);
+        switch (opcion) {
+            case 'A':
+                descuento=(float) (0.50*precio);
+                preciofinal=precio - descuento;
+                System.out.println("El descuento será:"+descuento+".El valor a pagar es:"+preciofinal);
+                break;
+            case 'B':
+                descuento=(float) (0.35*precio);
+                preciofinal=precio - descuento;
+                 System.out.println("El descuento será:"+descuento+".El valor a pagar es:"+preciofinal);
+                 break;
+            case 'C':
+                descuento=precio;
+                System.out.println("No hay descuento.El precio final será:"+precio);
+                break;
+            default:
+                System.out.println("Error,opción no válida.");
+                break;
+        }
+    }
